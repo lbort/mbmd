@@ -32,12 +32,12 @@ func NewSDMProducer() Producer {
 		PowerL2:       0x000E,
 		PowerL3:       0x0010,
 
-		//			   0x0012, // apparent power L1
-		//			   0x0014, // apparent power L2
-		//			   0x0016, // apparent power L3
-		//             0x0018, // reactive power L1
-		//			   0x001A, // reactive power L2
-		//			   0x001C, // reactive power L3
+		ApparentPowerL1: 0x0012, // apparent power L1
+		ApparentPowerL2: 0x0014, // apparent power L2
+		ApparentPowerL3: 0x0016, // apparent power L3
+		ReactivePowerL1: 0x0018, // reactive power L1
+		ReactivePowerL2: 0x001A, // reactive power L2
+		ReactivePowerL3: 0x001C, // reactive power L3
 		//			   0x001E, // power factor L1 (already below!)
 		//			   0x0020, // power factor L2 (already below!)
 		//			   0x0022, // power factor L3 (already below!)
@@ -53,7 +53,7 @@ func NewSDMProducer() Producer {
 		ReactivePower: 0x003C,
 
 		//			   0x003E, // total power factor (already below!)
-		//			   0x0042, // total phase angle
+		PhaseAngle:	   0x0042, // total phase angle
 		//			   0x0046, // freq. (already below!)
 		//			   0x0048, // import kwh since last reset (already below!)
 		//			   0x004A, // export kwh since last reset
