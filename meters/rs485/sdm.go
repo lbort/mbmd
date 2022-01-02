@@ -45,7 +45,7 @@ func NewSDMProducer() Producer {
 		//			   0x0024, 					// phase angle L1
 		//			   0x0026, 					// phase angle L2
 		//			   0x0028, 					// phase angle L3
-		//			   0x002A, 					// Average Line to neutral volts
+		Voltage:	   0x002A, 					// Average Line to neutral volts (todo: is this a good idea?)
 		//			   0x002E, 					// Average Line current
 		//			   0x0030, 					// Sum of Line currents
 
@@ -63,25 +63,25 @@ func NewSDMProducer() Producer {
 		//			   0x0050, 					// varh since last reset
 		//			   0x0052, 					// aH since last reset
 
-		ImportPower:   0x0054,
+		ImportPower:   0x0054,					// total system power demand (is this averaged over set interval?)
 
-		//			   0x0056, 					// maximum total power demand kW
-		//			   0x0064, 					// total power demand kVA
-		//			   0x0066, 					// maximum total power demand kVA
+		//			   0x0056, 					// maximum total power demand W
+		//			   0x0064, 					// total power demand VA
+		//			   0x0066, 					// maximum total power demand VA
 		//			   0x0068, 					// neutral current demand
 		//			   0x006A, 					// maximum neutral current demand
 		//			   0x00C8, 					// Line 1 to line 2 volts
 		//			   0x00CA, 					// Line 2 to line 3 volts
 		//			   0x00CC, 					// Line 3 to line 1 volts
-		//			   0x00CE, 					// Average Line to line volt
+		//			   0x00CE, 					// Average line to line voltage
 
-		//			   0x00E0, 					// Neutral current
+		Current:	   0x00E0, 					// Neutral current (bad idea! not really intuitive that "total" = neutral...)
 		//			   0x00EA, 					// L1-N voltage THD (already defined below!)
 		//			   0x00EC, 					// L2-N voltage THD (already defined below!)
 		//			   0x00EE, 					// L3-N voltage THD (already defined below!)
-		//			   0x00F0, 					// L1 current THD
-		//			   0x00F2, 					// L2 current THD
-		//			   0x00F4, 					// L3 current THD
+		DCCurrentS1:			   0x00F0, 					// L1 current THD todo: only for testing, remove!
+		DCCurrentS2:			   0x00F2, 					// L2 current THD todo: only for testing, remove!
+		DCCurrentS3:			   0x00F4, 					// L3 current THD todo: only for testing, remove!
 		//			   0x00F8, 					// average line to neutral thd voltage (already defined below!)
 		//			   0x00FA, 					// average line current thd
 		//			   0x00FE, 					// negative total system power factor (same as 0x003E, but sign inverted?? but here it is degrees?)
@@ -98,7 +98,7 @@ func NewSDMProducer() Producer {
 		//			   0x0152, 					// Line 3 to line 1 voltage THD
 		//			   0x0154, 					// Average Line to line voltage THD
 		//			   0x0156, 					// total kWh (already defined below!)
-		//			   0x0158, 					// total kvarh
+		ReactiveSum:   0x0158, 					// total kvarh
 		
 		ImportL1:      0x015A,					// L1 import kWh
 		ImportL2:      0x015C,					// L2 import kWh
@@ -111,15 +111,15 @@ func NewSDMProducer() Producer {
 		SumL1:         0x0166,					// L1 total kWh
 		SumL2:         0x0168,					// L2 total kWh
 		SumL3:         0x016a,					// L3 total kWh
-		//			   0x016c, 					// L1 import kVARh
-		//			   0x016e, 					// L2 import KVARh
-		//			   0x0170, 					// L3 import KVARh
-		//			   0x0172, 					// L1 export KVARh
-		//			   0x0174, 					// L2 export KVARh
-		//			   0x0176, 					// L3 export KVARh
-		//			   0x0178, 					// L1 total KVARh
-		//			   0x017A, 					// L2 total KVARh
-		//			   0x017C, 					// L3 total KVARh
+		ReactiveImportL1: 0x016c, 				// L1 import kVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveImportL2: 0x016e, 				// L2 import KVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveImportL3: 0x0170, 				// L3 import KVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveExportL1: 0x0172, 				// L1 export KVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveExportL2: 0x0174, 				// L2 export KVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveExportL3: 0x0176, 				// L3 export KVARh (import and export seem to imply "capacitive" and "inductive". sign not clear yet)
+		ReactiveSumL1: 0x0178, 					// L1 total KVARh
+		ReactiveSumL2: 0x017A, 					// L2 total KVARh
+		ReactiveSumL3: 0x017C, 					// L3 total KVARh
 
 		Sum:           0x0156, // 220 // (out of order: taken from above!)
 
