@@ -358,11 +358,25 @@
 						<td class="col-3" v-if="pop(m.THD)">${ m.THD }</td>
 						<td class="col-3" v-else>&mdash;</td>
 					</tr>
-					<tr class="d-flex" v-if="pop(m.PhaseAngle)">
-						<td class="col-3">Phase Angle</td>
-						<td class="col-2">&mdash;</td>
-						<td class="col-2">&mdash;</td>
-						<td class="col-2">&mdash;</td>
+					<tr class="d-flex" v-if="pop(m.THDiL1, m.THDiL2, m.THDiL3, m.THDi)">
+						<td class="col-3">THD Current (%)</td>
+						<td class="col-2" v-if="pop(m.THDiL1)">${ m.THDiL1 }</td>
+						<td class="col-2" v-else>&mdash;</td>
+						<td class="col-2" v-if="pop(m.THDiL2)">${ m.THDiL2 }</td>
+						<td class="col-2" v-else>&mdash;</td>
+						<td class="col-2" v-if="pop(m.THDiL3)">${ m.THDiL3 }</td>
+						<td class="col-2" v-else>&mdash;</td>
+						<td class="col-3" v-if="pop(m.THDi)">${ m.THDi }</td>
+						<td class="col-3" v-else>&mdash;</td>
+					</tr>
+					<tr class="d-flex" v-if="pop(m.PhaseAngle, m.PhaseAngleL1, m.PhaseAngleL2, m.PhaseAngleL3)">
+						<td class="col-3">Phase Angle (°)</td>
+						<td class="col-2" v-if="pop(m.PhaseAngleL1)">${ PhaseAngleL1 }</td>
+						<td class="col-2" v-else>&mdash;</td>
+						<td class="col-2" v-if="pop(m.PhaseAngleL2)">${ PhaseAngleL2 }</td>
+						<td class="col-2" v-else>&mdash;</td>
+						<td class="col-2" v-if="pop(m.PhaseAngleL3)">${ PhaseAngleL3 }</td>
+						<td class="col-2" v-else>&mdash;</td>
 						<td class="col-3">${ m.PhaseAngle }</td>
 					</tr>
 					<tr class="d-flex" v-if="pop(m.Frequency)">

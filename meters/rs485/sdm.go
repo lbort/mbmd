@@ -42,9 +42,9 @@ func NewSDMProducer() Producer {
 		//			   0x001E, 					// power factor L1 (already defined below!)
 		//			   0x0020, 					// power factor L2 (already defined below!)
 		//			   0x0022, 					// power factor L3 (already defined below!)
-		//			   0x0024, 					// phase angle L1
-		//			   0x0026, 					// phase angle L2
-		//			   0x0028, 					// phase angle L3
+		// PhaseAngleL1:  0x0024, 					// phase angle L1
+		// PhaseAngleL2:  0x0026, 					// phase angle L2
+		// PhaseAngleL3:  0x0028, 					// phase angle L3
 		Voltage:	   0x002A, 					// Average Line to neutral volts (todo: is this a good idea?)
 		//			   0x002E, 					// Average Line current
 		//			   0x0030, 					// Sum of Line currents
@@ -79,11 +79,11 @@ func NewSDMProducer() Producer {
 		//			   0x00EA, 					// L1-N voltage THD (already defined below!)
 		//			   0x00EC, 					// L2-N voltage THD (already defined below!)
 		//			   0x00EE, 					// L3-N voltage THD (already defined below!)
-		DCCurrentS1:			   0x00F0, 					// L1 current THD todo: only for testing, remove!
-		DCCurrentS2:			   0x00F2, 					// L2 current THD todo: only for testing, remove!
-		DCCurrentS3:			   0x00F4, 					// L3 current THD todo: only for testing, remove!
+		THDiL1:		   0x00F0, 					// L1 current THD
+		THDiL2:		   0x00F2, 					// L2 current THD
+		THDiL3:		   0x00F4, 					// L3 current THD
 		//			   0x00F8, 					// average line to neutral thd voltage (already defined below!)
-		//			   0x00FA, 					// average line current thd
+		THDi:		   0x00FA, 					// average line current thd
 		//			   0x00FE, 					// negative total system power factor (same as 0x003E, but sign inverted?? but here it is degrees?)
 
 		//			   0x0102, 					// Phase 1 current demand

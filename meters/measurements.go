@@ -140,6 +140,13 @@ const (
 	BatteryVoltage
 
 	PhaseAngle
+	PhaseAngleL1
+	PhaseAngleL2
+	PhaseAngleL3
+	THDi
+	THDiL1
+	THDiL2
+	THDiL3
 )
 
 var iec = map[Measurement][]string{
@@ -235,6 +242,13 @@ var iec = map[Measurement][]string{
 	ChargeState:      {"Charge State", "%"},
 	BatteryVoltage:   {"Battery Voltage", "V"},
 	PhaseAngle:       {"Phase Angle", "°"},
+	PhaseAngleL1:     {"Phase Angle L1", "°"},
+	PhaseAngleL2:     {"Phase Angle L2", "°"},
+	PhaseAngleL3:     {"Phase Angle L3", "°"},
+	THDiL1: 	  	  {"THDi L1", "%"},
+	THDiL2: 	      {"THDi L2", "%"},
+	THDiL3: 	      {"THDi L3", "%"},
+	THDi:	      {"THDi Avg.", "%"},
 }
 
 // MarshalText implements encoding.TextMarshaler
